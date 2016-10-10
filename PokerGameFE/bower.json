@@ -1,0 +1,17 @@
+{
+  "name": "PokerTeam2",
+  "homepage": "https://github.com/CameronC17/PokerTeam2",
+  "authors": [
+    "Adam Flanagan <adam.flanagan@skybettingandgaming.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
