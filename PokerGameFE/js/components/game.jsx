@@ -1,5 +1,3 @@
-
-
 var Game = React.createClass({
 
   render: function() {
@@ -65,7 +63,6 @@ var Game = React.createClass({
           </div>
         </section>
       </div>
-
     )
   }
 });
