@@ -1,6 +1,10 @@
 var NavBar = require("./components/navBar.jsx")
+var LogIn = require("./components/logIn.jsx")
 
 ReactDOM.render(
-  <NavBar />,
+  <div>
+    <NavBar />
+    <LogIn />
+  </div>,
   document.getElementById('container')
 );
