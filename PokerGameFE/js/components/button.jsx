@@ -1,6 +1,9 @@
 var appDispatcher = require('../dispatchers/appDispatcher.js');
+var GameStore = require("../stores/gameStore.js");
 
 var Button = React.createClass({
+
+
   handleClick: function() {
     appDispatcher.dispatch({
       action: this.props.constant
