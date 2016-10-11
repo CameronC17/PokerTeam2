@@ -9,7 +9,7 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Home}></IndexRoute>
-      <Route path="game" component={Game} ></Route>
+      <Route path="game" component={Game}></Route>
       <Route path="login" component={LogIn}></Route>
     </Route>
   </Router>,

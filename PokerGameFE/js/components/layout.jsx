@@ -16,7 +16,8 @@ var Layout = React.createClass({
             </div>
           </nav>
         </div>
-        {this.props.children}
+             {this.props.children}
+
       </div>
 
     )
