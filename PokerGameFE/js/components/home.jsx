@@ -4,7 +4,7 @@ var Home = React.createClass({
     return (
       <div>
         <section id='homepage-section'>
-          <div class="home-content">
+          <div className="home-content">
             <h1>PokerBalmz</h1>
             <p id="textContent">
               PokerBalmz is a Poker company named after its founder Ed Balm.
@@ -12,7 +12,7 @@ var Home = React.createClass({
             <p id="textContent">
               Balm so hard people want to fine me.
             </p>
-            <div class="img">
+            <div className="img">
               <img src="img/pokerimage.jpg" alt="Poker Image" id="homepageimage"/>
             </div>
           </div>
