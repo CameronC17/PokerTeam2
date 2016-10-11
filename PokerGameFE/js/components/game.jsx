@@ -41,10 +41,7 @@ var Game = React.createClass({
             <div className="seat" id="seat4"></div>
             <div className="seat" id="seat5"></div>
             <div className="gamecontent">
-              <div className="singlemultiplayer">
-                <button type="button" id="single">Single</button>
-                <button type="button" id="multiplayer">Multiplayer</button>
-              </div>
+              
 
               <div id="gamebuttons">
                 <label for="stake">Stake:</label><br/>
