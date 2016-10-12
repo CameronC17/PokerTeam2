@@ -1,3 +1,6 @@
+var Constants = require("../constants/constants.js");
+var appDispatcher = require("../dispatchers/appDispatcher.js");
+
 var LogIn = React.createClass({
 
   getInitialState: function() {
@@ -28,14 +31,22 @@ var LogIn = React.createClass({
 
   },
 
+  handleUsernameChange: function(event){
+    this.setState({user: {
+      username: event.target.value,
+      password: this.state.user.password
+    }});
+  },
+
   handlePasswordChange: function(event) {
 
-    this.setState({username: event.target.value});
+    this.setState({user: {
+          username: this.state.user.username,
+          password: event.target.value
+        }});
   },
 
-  handleUsernameChange: function(event){
-    this.setState({password: event.target.value});
-  },
+
 
 
 
@@ -53,10 +64,10 @@ var LogIn = React.createClass({
                   <div className="message" id="login-msg">
                   </div>
                     <div>
-                        <input type="text" className="username" id="username" placeholder="Username" value={this.state.username} onChange={this.handlePasswordChange} required />
+                        <input type="text" className="username" id="username" placeholder="Username" value={this.state.username} onChange={this.handleUsernameChange} required />
                     </div>
                     <div>
-                        <input type="password" id="password" className="password" placeholder="Password" value={this.state.password} onChange={this.handleUsernameChange} required />
+                        <input type="password" id="password" className="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange} required />
                     </div>
                     <input type="button" value="Login" id="login-button" onClick={this.handleClick}/>
                 </form>
