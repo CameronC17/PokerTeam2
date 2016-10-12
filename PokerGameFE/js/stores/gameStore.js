@@ -41,6 +41,12 @@ var GameStore = merge(EventEmitter.prototype, {
   }
 });
 
+var TableCardStore = merge(EventEmitter.prototype, {
+  getTCards: function(){
+    return _tCards;
+  }
+})
+
 appDispatcher.register(handleAction);
 
 function handleAction(payload) {
@@ -56,10 +62,13 @@ function handleAction(payload) {
   if (payload.action == Constants.START_GAME) {
     console.log("Testing Testing Store")
     PlayerCardStore.emit("update");
+    TableCardStore.emit("update");
   }
+
 }
 
 module.exports = {
   PlayerCardStore: PlayerCardStore,
-  GameStore: GameStore
+  GameStore: GameStore,
+  TableCardStore: TableCardStore
 }
