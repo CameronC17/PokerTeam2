@@ -3,13 +3,19 @@ var EventEmitter = require('events').EventEmitter;
 var merge = require('merge');
 var Constants = require('../constants/constants.js');
 
+
+
+
 var _tCards = [
-            { suit: 'heart', value: 10 },
-            { suit: 'diamond', value: 10 },
-            { suit: 'club', value: 2 },
-            { suit: 'spade', value: 2 },
-            { suit: 'heart', value: 14 }
-];
+  { suit: 'heart', value: 9 },
+  { suit: 'diamond', value: 10 },
+  { suit: 'heart', value: 9 },
+  { suit: 'diamond', value: 10 },
+  { suit: 'heart', value: 9 }
+]
+
+
+
 
 var _pCards = [
             [{ suit: 'heart', value: 9 },
@@ -53,6 +59,14 @@ function handleAction(payload) {
 // if startgame, do an api call to /api/start
   console.log("STARTGAME");
 
+  if (payload.action == Constants.LOGIN_ACTION) {
+
+    axios.post()
+
+
+  }
+
+
 
   if (payload.action == Constants.ACTION_CHECK) {
 
@@ -60,7 +74,10 @@ function handleAction(payload) {
   }
 
   if (payload.action == Constants.START_GAME) {
-    console.log("Testing Testing Store")
+
+    axios.post()
+
+
     PlayerCardStore.emit("update");
     TableCardStore.emit("update");
   }
