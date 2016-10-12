@@ -6,13 +6,7 @@ var Constants = require('../constants/constants.js');
 
 
 
-var _tCards = [
-  { suit: 'heart', value: 9 },
-  { suit: 'diamond', value: 10 },
-  { suit: 'heart', value: 9 },
-  { suit: 'diamond', value: 10 },
-  { suit: 'heart', value: 9 }
-]
+var _tCards = []
 
 
 
@@ -24,8 +18,8 @@ var _game = {
 
 
 var PlayerCardStore = merge(EventEmitter.prototype, {
-  getPCards: function(index){
-    return _pCards[index];
+  getPCards: function(){
+    return _pCards;
   }
 });
 
@@ -67,13 +61,15 @@ function handleAction(payload) {
 
     axios.post("http://localhost:3000/api/games", { user: userId, bet: "false", check: "true", fold: "false", call: "false"})
       .then(function(result){
+        console.log(result);
         if (result.status == 200){
-          _tCards = result.data
+          _tCards = result.data.cards;
+          TableCardStore.emit("update");
         }
     })
 
 
-    TableCardStore.emit("update");
+
   }
 
   if (payload.action == Constants.START_GAME) {
@@ -82,12 +78,12 @@ function handleAction(payload) {
     axios.post("http://localhost:3000/api/games/new", { user: userId})
       .then(function(result){
         if (result.status == 200){
-          _pCards = result.data
+          console.log(result.data);
+          _pCards = result.data;
+          PlayerCardStore.emit("update");
         }
     })
 
-
-    PlayerCardStore.emit("update");
   }
 
 

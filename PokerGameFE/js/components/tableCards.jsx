@@ -1,7 +1,6 @@
 var Card = require("./card.jsx")
 var GameStore = require("../stores/gameStore.js")
 
-
 var TableCards = React.createClass({
 
   getInitialState: function() {
@@ -22,13 +21,17 @@ var TableCards = React.createClass({
   },
 
   render: function(){
+    var cards = []
+    //console.log(this.state.tableCards);
+    if(this.state.tableCards.length > 0){
+      for (var i = 0; i < this.state.tableCards.length; i++) {
+        cards.push(<Card suits={this.state.tableCards[i].suit} value={this.state.tableCards[i].value} key={i}/>);
+      }
+
+    }
     return (
       <div>
-        <Card suits={this.state.tableCards[0].suit} value={this.state.tableCards[0].value}/>
-        <Card suits={this.state.tableCards[1].suit} value={this.state.tableCards[1].value}/>
-        <Card suits={this.state.tableCards[2].suit} value={this.state.tableCards[2].value}/>
-        <Card suits={this.state.tableCards[3].suit} value={this.state.tableCards[3].value}/>
-        <Card suits={this.state.tableCards[4].suit} value={this.state.tableCards[4].value}/>
+        {cards}
       </div>
     )
   }
