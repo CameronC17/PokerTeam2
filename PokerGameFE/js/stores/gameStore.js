@@ -8,9 +8,6 @@ var Constants = require('../constants/constants.js');
 
 var _tCards = []
 
-
-
-
 var _pCards = [];
 
 var _game = {
