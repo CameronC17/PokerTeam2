@@ -24,13 +24,16 @@ var PlayerCards = React.createClass({
   },
 
   render: function(){
-    console.log(this.state.playerCards)
+    var cards = []
+    if(this.state.playerCards != null){
+      cards.push(<Card suits={this.state.playerCards[0].suit} value={this.state.playerCards[0].value}/>)
+      cards.push(<Card suits={this.state.playerCards[1].suit} value={this.state.playerCards[1].value}/>)
+    }
+      return(
+        <div>
+          {cards}
+        </div>
 
-    return(
-      <div>
-        <Card suits={this.state.playerCards[0].suit} value={this.state.playerCards[0].value}/>
-        <Card suits={this.state.playerCards[1].suit} value={this.state.playerCards[1].value}/>
-      </div>
     )
   }
 })

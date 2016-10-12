@@ -17,19 +17,7 @@ var _tCards = [
 
 
 
-var _pCards = [
-            [{ suit: 'heart', value: 9 },
-            { suit: 'diamond', value: 10 }],
-            [{ suit: 'heart', value: 7 },
-            { suit: 'diamond', value: 10 }],
-            [{ suit: 'heart', value: 5 },
-            { suit: 'diamond', value: 10 }],
-            [{ suit: 'heart', value: 3 },
-            { suit: 'diamond', value: 10 }],
-            [{ suit: 'heart', value: 2 },
-            { suit: 'diamond', value: 10 }]
-
-          ]
+var _pCards = [];
 
 var _game = {
 };
@@ -57,7 +45,6 @@ appDispatcher.register(handleAction);
 
 function handleAction(payload) {
 // if startgame, do an api call to /api/start
-  console.log("STARTGAME");
 
   if (payload.action == Constants.LOGIN_ACTION) {
       console.log(payload);
@@ -75,18 +62,35 @@ function handleAction(payload) {
 
 
   if (payload.action == Constants.ACTION_CHECK) {
+    console.log("Checking")
+    var userId = localStorage.getItem("user")
 
-    GameStore.emit("update");
+    axios.post("http://localhost:3000/api/games", { user: userId, bet: "false", check: "true", fold: "false", call: "false"})
+      .then(function(result){
+        if (result.status == 200){
+          _tCards = result.data
+        }
+    })
+
+
+    TableCardStore.emit("update");
   }
 
   if (payload.action == Constants.START_GAME) {
+    var userId = localStorage.getItem("user")
 
-    axios.post()
+    axios.post("http://localhost:3000/api/games/new", { user: userId})
+      .then(function(result){
+        if (result.status == 200){
+          _pCards = result.data
+        }
+    })
 
 
     PlayerCardStore.emit("update");
-    TableCardStore.emit("update");
   }
+
+
 
 }
 

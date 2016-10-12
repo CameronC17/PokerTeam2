@@ -22,7 +22,6 @@ var TableCards = React.createClass({
   },
 
   render: function(){
-    console.log(this.state.tableCards);
     return (
       <div>
         <Card suits={this.state.tableCards[0].suit} value={this.state.tableCards[0].value}/>
