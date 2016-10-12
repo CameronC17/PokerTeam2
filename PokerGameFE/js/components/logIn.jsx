@@ -1,3 +1,4 @@
+import {Link} from "react-router";
 var Constants = require("../constants/constants.js");
 var appDispatcher = require("../dispatchers/appDispatcher.js");
 
@@ -69,7 +70,7 @@ var LogIn = React.createClass({
                     <div>
                         <input type="password" id="password" className="password" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange} required />
                     </div>
-                    <input type="button" value="Login" id="login-button" onClick={this.handleClick}/>
+                    <Link to='/'><input type="button" value="Login" id="login-button" onClick={this.handleClick} /></Link>
                 </form>
             </div>
         </div>
