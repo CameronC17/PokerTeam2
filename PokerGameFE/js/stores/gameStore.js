@@ -60,10 +60,16 @@ function handleAction(payload) {
   console.log("STARTGAME");
 
   if (payload.action == Constants.LOGIN_ACTION) {
-
-    axios.post()
-
-
+      console.log(payload);
+      var result= axios.post("http://localhost:3000/api/users/login", {username: payload.user.username, password: payload.user.password})
+           .then(function(result){
+              console.log(result.status);
+              if(result.status== 200){
+                window.localStorage.setItem('user', result.data.user);
+                window.localStorage.setItem('username', result.data.username);
+              }
+              CurrentPage.emit('update');
+           });
   }
 
 
